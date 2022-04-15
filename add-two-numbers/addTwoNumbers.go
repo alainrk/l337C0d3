@@ -1,4 +1,4 @@
-package main
+package l337C0d3
 
 type ListNode struct {
 	Val  int
