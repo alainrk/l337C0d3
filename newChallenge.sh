@@ -22,6 +22,6 @@ func solution(i int) error {
 
 HEREDOC
 
-echo "Insert your function in ${challenge}/${challenge}.go and create new test file with:\n\tgotests --all --parallel -w ${challenge}/${challenge}.go"
+echo "Insert your function in ${challenge}/${challenge}.go and create new test file with:\n\tgotests --all --parallel -w ${challenge}.go"
 
 exit 0
