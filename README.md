@@ -18,8 +18,14 @@ go get -u github.com/cweill/gotests/...
 ```
 
 ### Test
+
+- Test all
 ```sh
 make test
+```
+- Test specific challenge
+```sh
+go test -v github.com/alainrk/l337C0d3/challenge
 ```
 
 ### Add challenge wizard

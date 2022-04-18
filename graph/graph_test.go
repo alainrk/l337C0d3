@@ -6,16 +6,7 @@ import (
 )
 
 func TestGraph(t *testing.T) {
-	nodes := []GraphNode{
-		{Value: "0"},
-		{Value: "1"},
-		{Value: "2"},
-		{Value: "3"},
-		{Value: "4"},
-		{Value: "5"},
-		{Value: "6"},
-		{Value: "7"},
-	}
+	nodes := []GraphNode{{"0"}, {"1"}, {"2"}, {"3"}, {"4"}, {"5"}, {"6"}, {"7"}}
 	edges := EdgesMap{
 		0: []int{1, 2},
 		1: []int{0, 2, 3, 5},
