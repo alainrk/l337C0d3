@@ -1,60 +1,35 @@
 package l337C0d3
 
 import (
-	"reflect"
+	"fmt"
 	"testing"
 )
 
-func TestGraph_DFS(t *testing.T) {
-	type fields struct {
-		Nodes []*GraphNode
-		Edges map[int]int
+func TestGraph(t *testing.T) {
+	nodes := []GraphNode{
+		{Value: "0"},
+		{Value: "1"},
+		{Value: "2"},
+		{Value: "3"},
+		{Value: "4"},
+		{Value: "5"},
+		{Value: "6"},
+		{Value: "7"},
 	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   []GraphNode
-	}{
-		// TODO: Add test cases.
+	edges := EdgesMap{
+		0: []int{1, 2},
+		1: []int{0, 2, 3, 5},
+		2: []int{1},
+		3: []int{1},
+		4: []int{5},
+		5: []int{1, 4},
+		6: []int{7},
+		7: []int{6},
 	}
-	for _, tt := range tests {
-		tt := tt
-		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
-			g := &Graph{
-				Nodes: tt.fields.Nodes,
-				Edges: tt.fields.Edges,
-			}
-			if got := g.DFS(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Graph.DFS() = %v, want %v", got, tt.want)
-			}
-		})
+	graph := Graph{
+		Nodes: nodes,
+		Edges: edges,
 	}
-}
 
-func TestGraph_BFS(t *testing.T) {
-	type fields struct {
-		Nodes []*GraphNode
-		Edges map[int]int
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   []GraphNode
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		tt := tt
-		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
-			g := &Graph{
-				Nodes: tt.fields.Nodes,
-				Edges: tt.fields.Edges,
-			}
-			if got := g.BFS(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Graph.BFS() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	fmt.Printf("DFS: %+v\n", graph.DFS())
 }
