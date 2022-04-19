@@ -23,3 +23,7 @@ func (s *Stack) Pop() (interface{}, bool) {
 func (s Stack) IsEmpty() bool {
 	return s.size == 0
 }
+
+func (s Stack) Size() int {
+	return s.size
+}

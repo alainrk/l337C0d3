@@ -1,25 +1,40 @@
 package l337C0d3
 
 type Queue struct {
-	size  int
-	Items []interface{}
+	size     int
+	elements []Element
 }
 
-func (s *Queue) Enqueue(item interface{}) {
-	s.size++
-	s.Items = append(s.Items, item)
+func NewQueue(items ...interface{}) Queue {
+	var elements []Element
+	for _, e := range items {
+		elements = append(elements, Element{Value: e})
+	}
+	return Queue{
+		size:     len(items),
+		elements: elements,
+	}
 }
 
-func (s *Queue) Dequeue() (interface{}, bool) {
-	if s.size == 0 {
+func (q *Queue) Enqueue(item interface{}) {
+	q.size++
+	q.elements = append(q.elements, Element{Value: item})
+}
+
+func (q *Queue) Dequeue() (interface{}, bool) {
+	if q.size == 0 {
 		return nil, false
 	}
-	item := s.Items[0]
-	s.Items = s.Items[1:]
-	s.size--
-	return item, true
+	item := q.elements[0]
+	q.elements = q.elements[1:]
+	q.size--
+	return item.Value, true
 }
 
-func (s Queue) IsEmpty() bool {
-	return s.size == 0
+func (q Queue) IsEmpty() bool {
+	return q.size == 0
+}
+
+func (q Queue) Size() int {
+	return q.size
 }
