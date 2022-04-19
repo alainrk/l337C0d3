@@ -1,12 +1,12 @@
 package l337C0d3
 
 import (
-	"fmt"
+	"reflect"
 	"testing"
 )
 
 func TestGraph(t *testing.T) {
-	nodes := []GraphNode{{"0"}, {"1"}, {"2"}, {"3"}, {"4"}, {"5"}, {"6"}, {"7"}}
+	nodes := []GraphNode{{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}}
 	edges := EdgesMap{
 		0: []int{1, 2},
 		1: []int{0, 2, 3, 5},
@@ -22,5 +22,15 @@ func TestGraph(t *testing.T) {
 		Edges: edges,
 	}
 
-	fmt.Printf("DFS: %+v\n", graph.DFS())
+	// One of the possible result, but the expected for the current implementation
+	expected := []int{0, 2, 1, 5, 4, 3, 6, 7}
+	dfs := graph.DFS()
+	res := make([]int, len(dfs))
+	for i, v := range dfs {
+		res[i] = v.(int)
+	}
+
+	if !reflect.DeepEqual(res, expected) {
+		t.Errorf("DFS error, expected: %+v, given: %+v", expected, res)
+	}
 }

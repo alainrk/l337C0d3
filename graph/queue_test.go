@@ -33,7 +33,7 @@ func TestQueue_Dequeue(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(q, expected) {
-		t.Errorf("error enqueue, given: %+v expected: %+v", q, expected)
+		t.Errorf("error dequeue, given: %+v expected: %+v", q, expected)
 	}
 }
 
