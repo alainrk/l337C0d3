@@ -109,4 +109,4 @@ https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questio
 - [ ] [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream)
 
 ## Important Link
--[14 Patterns to Ace Any Coding Interview Question](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
+- [14 Patterns to Ace Any Coding Interview Question](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
