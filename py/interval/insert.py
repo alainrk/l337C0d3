@@ -5,7 +5,7 @@ def insert(intervals, n):
   res = []
   i = 0 # needed after loop as well
   for i, (x, y) in enumerate(intervals):
-    print(f"\n- Loop: \n\ti = {i} \n\tcurrInterval = ({x},{y}) \n\tnewInterval = {n}\n\tres = {res}\n")
+    print(f"\n- Loop:\n\ti = {i}\n\tcurrInterval = ({x},{y})\n\tnewInterval = {n}\n\tres = {res}\n")
     # newInterval is after current one
     if n[0] > y:
       print(f"n[0] > y [{n[0]} > {y}] -- add [{x}, {y}] to result")
@@ -19,10 +19,10 @@ def insert(intervals, n):
     else:
       n[0] = min(n[0], x)
       n[1] = max(n[1], y)
-      print(f"set new interval to the larget possible (using curr and new) and go on...")
+      print(f"set new interval to largest possible (using curr and new) = {n}")
   # concat res so far, the new interval and the rest of the intervals
-  res += [n] + intervals[i+1:]
   print(f"result = {res} + {[n]} + {intervals[i+1:]}")
+  res += [n] + intervals[i+1:]
   return res
 
 assert(insert([[1, 3], [3, 5]], [2, 4]) == [[1, 5]])
