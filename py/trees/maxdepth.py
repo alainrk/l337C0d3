@@ -40,4 +40,8 @@ t1 = TreeNode(1,
   )
 )
 
+t2 = TreeNode(1, TreeNode(2, TreeNode(3, TreeNode(4, TreeNode(5, None), None), None), None), None)
+
+assert(maxDepthRec(None) == maxDepthIter(None) == 0)
 assert(maxDepthRec(t1) == maxDepthIter(t1) == 4)
+assert(maxDepthRec(t2) == maxDepthIter(t2) == 5)
