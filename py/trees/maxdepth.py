@@ -1,5 +1,11 @@
 import queue
 
+class TreeNode:
+  def __init__(self, val=0, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
 def maxDepthRec(root):
   if root is None:
     return 0
@@ -19,3 +25,19 @@ def maxDepthIter(root):
     if c["node"].right:
       q.put({ "node": c["node"].right, "h": c["h"] + 1 })
   return maxd
+
+t1 = TreeNode(1,
+  TreeNode(2,
+    TreeNode(3, None),
+    None
+  ),
+  TreeNode(2,
+    TreeNode(3, None),
+    TreeNode(3,
+      TreeNode(4, None),
+      TreeNode(4, None),
+    ),
+  )
+)
+
+assert(maxDepthRec(t1) == maxDepthIter(t1) == 4)
