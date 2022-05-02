@@ -1,8 +1,18 @@
 # Leetcode, challenges, misc stuff
 
-## Setup
+## Python
 
-### Adjust go settings
+### Dev
+```sh
+cd py
+```
+
+
+## Go
+
+### Setup
+
+#### Adjust go settings
 ```
 # .bashrc/.zshrc
 export GO111MODULE="auto"
@@ -10,14 +20,17 @@ export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 ```
 
-## Dev
+### Dev
+```sh
+cd go
+```
 
-### Install gotests
+#### Install gotests
 ```sh
 go get -u github.com/cweill/gotests/...
 ```
 
-### Test
+#### Test
 
 - Test all
 ```sh
@@ -28,12 +41,12 @@ make test
 go test -v github.com/alainrk/l337C0d3/challenge
 ```
 
-### Add challenge wizard
+#### Add challenge wizard
 ```sh
 make new
 ```
 
-### Generate test cases
+#### Generate test cases
 - Enter the challenge folder
 - Write your function signature in ${challenge}.go
 - Generate:
