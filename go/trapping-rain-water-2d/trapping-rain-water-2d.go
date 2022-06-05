@@ -76,18 +76,26 @@ func trapRainWater(heightMap [][]int) int {
 	for bounds.Len() > 0 {
 		curr := heap.Pop(bounds).(Point) // get min height in the current bounds
 		fmt.Println("Pop:", curr)
+
 		visited[curr.x][curr.y] = true
+
 		maxh = max(maxh, curr.height)
 		fmt.Println("Maxh:", maxh)
+
 		neighbours := getNeighbours(curr, W-1, H-1)
+
 		for _, nb := range neighbours {
 			n := Point{nb[0], nb[1], heightMap[nb[0]][nb[1]]}
+
 			fmt.Println("Neigh:", n)
+
 			if visited[n.x][n.y] {
 				continue
 			}
+
 			visited[n.x][n.y] = true
 			fmt.Printf("n.height (%d) < maxh (%d): %v\n", n.height, maxh, n.height < maxh)
+
 			if n.height < maxh {
 				res += (maxh - n.height)
 			}
